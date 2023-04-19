@@ -20,34 +20,44 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1>Vienna</h1>
-        <div class="row">
-          <div class="col-4">
-            <ul>
-              <li>19. April 2023</li>
-              <li>Wednesday 16:17</li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-              alt="rain_light"
-            />
-            7°C | °F
-          </div>
-          <div class="col-4">
-            <ul>
-              <li>moderate rain</li>
-              <li>Precipitation: 40%</li>
-              <li>Sunrise: 7am</li>
-              <li>Sunset: 7pm</li>
-            </ul>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <h1>Vienna</h1>
+          <div class="row">
+            <div class="col-4">
+              <ul>
+                <li>19. April 2023</li>
+                <li>Wednesday 16:17</li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
+                alt="rain_light"
+              />
+              <strong>7</strong>°C | °F
+            </div>
+            <div class="col-4">
+              <ul>
+                <li><strong>Moderate rain</strong></li>
+                <li>Precipitation: 40%</li>
+                <li>Sunrise: 7am</li>
+                <li>Sunset: 7pm</li>
+              </ul>
+            </div>
           </div>
         </div>
-
-        <script src="src/app.js"></script>
+        <small>
+          <a
+            href="https://github.com/CodingAdventure123/vanilla-weather-app"
+            target="_blank" class="github-link"
+          >
+            Open source code
+          </a>
+          written by Livia G
+        </small>
       </div>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>

@@ -2,17 +2,9 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.weather-app {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 40px;
-  border: 1px solid #a09f9f;
-  border-radius: 20px;
-}
-
 h1 {
   color: #303030;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 100;
   line-height: 28px;
   margin-bottom: 20px;
@@ -29,4 +21,19 @@ li {
   font-size: 18px;
   margin: 0;
   padding: 0;
+}
+
+.github-link {
+  text-decoration: none;
+}
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.weather-app {
+  padding: 40px;
+  border: 1px solid #a09f9f;
+  border-radius: 20px;
 }
