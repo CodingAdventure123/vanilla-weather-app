@@ -52,8 +52,12 @@ li:first-letter {
   margin-right: 10px;
 }
 
+.units {
+  font-size: 14px;
+}
+
 #temperature {
-  font-size: 64px;
+  font-size: 62px;
   line-height: 1;
   font-weight: 400;
 }
