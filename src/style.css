@@ -37,3 +37,28 @@ li {
   border: 1px solid #a09f9f;
   border-radius: 20px;
 }
+
+.weather-temperature img {
+  margin-right: 15px;
+  height: 64px;
+  width: 64px;
+}
+
+.weather-temperature {
+  margin-right: 20px;
+}
+
+#temperature {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.weather-temperature .units {
+  position: relative;
+  top: -34px;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+}

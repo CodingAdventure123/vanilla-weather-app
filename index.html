@@ -24,25 +24,34 @@
         <div class="weather-app">
           <h1>Vienna</h1>
           <div class="row">
-            <div class="col-4">
+            <div class="date-info col-3">
               <ul>
                 <li>19. April 2023</li>
-                <li>Wednesday 16:17</li>
+                <li>Wednesday</li>
+                <li>16:17 pm</li>
               </ul>
             </div>
-            <div class="col-4">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-                alt="rain_light"
-              />
-              <strong>7</strong>°C | °F
+            <div class="col-5">
+              <div class="d-flex weather-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
+                  alt="rain_light"
+                  id="icon"
+                />
+                <div>
+                  <strong id="temperature">7</strong
+                  ><span class="units">
+                    °C | <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </div>
+              </div>
             </div>
             <div class="col-4">
               <ul>
                 <li><strong>Moderate rain</strong></li>
-                <li>Precipitation: 40%</li>
-                <li>Sunrise: 7am</li>
-                <li>Sunset: 7pm</li>
+                <li><small>Precipitation: 40%</small></li>
+                <li><small>Sunrise: 7 am</small></li>
+                <li><small>Sunset: 7 pm</small></li>
               </ul>
             </div>
           </div>
@@ -50,7 +59,8 @@
         <small>
           <a
             href="https://github.com/CodingAdventure123/vanilla-weather-app"
-            target="_blank" class="github-link"
+            target="_blank"
+            class="github-link"
           >
             Open source code
           </a>
