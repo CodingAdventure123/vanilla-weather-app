@@ -53,6 +53,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let weekDayElement = document.querySelector("#week-day");
   let dateYearElement = document.querySelector("#date-year");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -61,6 +62,8 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   weekDayElement.innerHTML = formatDate(response.data.time * 1000);
   dateYearElement.innerHTML = formatYear(response.data);
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
