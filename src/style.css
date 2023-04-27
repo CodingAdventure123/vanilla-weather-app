@@ -8,6 +8,8 @@ h1 {
   font-weight: 100;
   line-height: 28px;
   margin-bottom: 20px;
+  position: relative;
+  right: 12px;
 }
 
 ul {
@@ -40,6 +42,7 @@ li:first-letter {
   padding: 40px;
   border: 1px solid #a09f9f;
   border-radius: 20px;
+  
 }
 
 .weather-temperature img {
@@ -69,4 +72,24 @@ li:first-letter {
 
 #fahrenheit-link {
   text-decoration: none;
+}
+
+.search-button {
+  position: relative;
+  right: 10px;
+}
+
+.current-position-button {
+  position: relative;
+  right: 10px;
+}
+
+.top-bar {
+  position: relative;
+  right: 15px;
+}
+
+.weather-info {
+  position: relative;
+  right: 10px;
 }
