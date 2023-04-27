@@ -1,5 +1,3 @@
-//Weather API SheCodes https://www.shecodes.io/learn/apis/weather
-
 function formatYear() {
   let currentDate = new Date();
   let day = currentDate.getDate();
@@ -45,6 +43,9 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+//Weather API SheCodes https://www.shecodes.io/learn/apis/weather
+//Temperature, description, date/time, icon changing when city is changed
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -66,9 +67,24 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
-let city = "London";
-let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=London&key=bdbfbt8caf94d99e3db801476bbo7302&units=metric";
+//Search-Engine
 
-axios.get(apiUrl).then(displayTemperature);
+function searchCity(city) {
+  let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
+  let apiUrl =
+    "https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric";
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-text-input").value;
+  searchCity(cityInputElement);
+  console.log(cityInputElement);
+}
+
+searchCity("London");
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
