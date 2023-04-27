@@ -72,7 +72,7 @@ function displayTemperature(response) {
 function searchCity(city) {
   let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
   let apiUrl =
-    "https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric";
+    "https://api.shecodes.io/weather/v1/current?query=Palermo&key=bdbfbt8caf94d99e3db801476bbo7302&units=metric";
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -84,7 +84,37 @@ function handleSubmit(event) {
   console.log(cityInputElement);
 }
 
-searchCity("London");
+searchCity("Palermo");
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+//Current Location Button
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+
+  let city = document.querySelector("#city");
+  city.innerHTML = `${response.data.name}`;
+
+  let currentDegree = document.querySelector("#temperature");
+  currentDegree.innerHTML = `${temperature}`;
+
+  let description = document.querySelector("#description");
+  description.innerHTML = `${response.data.weather[0].description}`;
+}
+
+function showPosition(position) {
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let apiKey = `e5c6f9b6e53ce3d8a3fdc571f7fd21a6`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function retrievePosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let currentPositionButton = document.querySelector("#current-location-button");
+currentPositionButton.addEventListener("click", retrievePosition);
