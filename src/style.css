@@ -42,7 +42,6 @@ li:first-letter {
   padding: 40px;
   border: 1px solid #a09f9f;
   border-radius: 20px;
-  
 }
 
 .weather-temperature img {
@@ -82,6 +81,8 @@ li:first-letter {
 .current-location-button {
   position: relative;
   right: 10px;
+  background-color: rgb(34, 168, 34);
+  border: rgb(34, 168, 34);
 }
 
 .top-bar {

@@ -83,11 +83,6 @@ function handleSubmit(event) {
   console.log(cityInputElement);
 }
 
-searchCity("Palermo");
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 //Current Location Button
 
 function showTemperature(response) {
@@ -117,3 +112,10 @@ function retrievePosition() {
 
 let currentPositionButton = document.querySelector("#current-location-button");
 currentPositionButton.addEventListener("click", retrievePosition);
+
+//Global elements
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+searchCity("Palermo");
