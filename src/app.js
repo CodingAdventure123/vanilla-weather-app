@@ -71,8 +71,7 @@ function displayTemperature(response) {
 
 function searchCity(city) {
   let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
-  let apiUrl =
-    "https://api.shecodes.io/weather/v1/current?query=Palermo&key=bdbfbt8caf94d99e3db801476bbo7302&units=metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
