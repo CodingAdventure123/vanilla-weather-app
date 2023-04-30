@@ -12,6 +12,10 @@ h1 {
   right: 12px;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -66,11 +70,12 @@ li:first-letter {
 
 .weather-temperature .units {
   position: relative;
-  top: -34px;
+  top: -36px;
 }
 
-#fahrenheit-link {
-  text-decoration: none;
+.weather-temperature .active {
+  color: #303030;
+  cursor: default;
 }
 
 .search-button {
