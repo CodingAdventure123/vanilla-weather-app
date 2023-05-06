@@ -43,6 +43,37 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+//Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
+          alt="rain_light"
+          width="42"
+        />
+        <div class="weather-forecast-temperature">
+           <span class="weather-forecast-temperature-max">16°</span> /
+           <span class="weather-forecast-temperature-min">11
+           </span>
+        </div>
+      </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Weather API SheCodes https://www.shecodes.io/learn/apis/weather
 //Temperature, description, date/time, icon changing when city is changed
 
@@ -147,3 +178,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Palermo");
+displayForecast();
