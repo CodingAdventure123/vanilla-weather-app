@@ -44,31 +44,58 @@ function formatDate(timestamp) {
 }
 
 //Forecast
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let weekDays = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+
+  let day = weekDays[date.getDay()];
+  return `${day}`;
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  //calling array of the next 7 days = "forecast"
+  
+  let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
+
+  forecast.forEach(function (forecastDay, index) {
+    if(index < 6){
     forecastHTML =
-      forecastHTML +
+    forecastHTML +
       `
       <div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
         <img
-          src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-          alt="rain_light"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDay.condition.icon
+          }.png"
           width="42"
         />
         <div class="weather-forecast-temperature">
-           <span class="weather-forecast-temperature-max">16°</span> /
-           <span class="weather-forecast-temperature-min">11
+           <span class="weather-forecast-temperature-max">${Math.round(
+             forecastDay.temperature.maximum
+           )}°</span> /
+           <span class="weather-forecast-temperature-min">${Math.round(
+             forecastDay.temperature.minimum
+           )}°
            </span>
         </div>
       </div>
     `;
+      }
   });
 
   forecastHTML = forecastHTML + `</div>`;
