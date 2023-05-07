@@ -44,7 +44,9 @@ function formatDate(timestamp) {
 }
 
 //Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -74,6 +76,13 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "bdbfbt8caf94d99e3db801476bbo7302";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //Weather API SheCodes https://www.shecodes.io/learn/apis/weather
 //Temperature, description, date/time, icon changing when city is changed
 
@@ -98,6 +107,8 @@ function displayTemperature(response) {
   dateYearElement.innerHTML = formatYear(response.data);
   iconElement.setAttribute("src", response.data.condition.icon_url);
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 //Search-Engine
