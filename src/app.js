@@ -48,15 +48,7 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
 
-  let weekDays = [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat",
-  ];
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let day = weekDays[date.getDay()];
   return `${day}`;
@@ -64,7 +56,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   //calling array of the next 7 days = "forecast"
-  
+
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -72,10 +64,10 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if(index < 6){
-    forecastHTML =
-    forecastHTML +
-      `
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
         <img
@@ -95,7 +87,7 @@ function displayForecast(response) {
         </div>
       </div>
     `;
-      }
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -152,36 +144,6 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#search-text-input").value;
   searchCity(cityInputElement);
 }
-
-//Current Location Button
-
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-
-  let city = document.querySelector("#city");
-  city.innerHTML = `${response.data.name}`;
-
-  let currentDegree = document.querySelector("#temperature");
-  currentDegree.innerHTML = `${temperature}`;
-
-  let description = document.querySelector("#description");
-  description.innerHTML = `${response.data.weather[0].description}`;
-}
-
-function showPosition(position) {
-  let lon = position.coords.longitude;
-  let lat = position.coords.latitude;
-  let apiKey = `e5c6f9b6e53ce3d8a3fdc571f7fd21a6`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-function retrievePosition() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-let currentPositionButton = document.querySelector("#current-location-button");
-currentPositionButton.addEventListener("click", retrievePosition);
 
 //Unit conversion
 
